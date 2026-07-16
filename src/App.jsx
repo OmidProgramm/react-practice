@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Products from './Products/Products';
 
 import './App.css'
 
@@ -13,10 +14,11 @@ function App() {
   useEffect(()=>{
     getData()
   },[])
-  console.log(products)
+  
   return (
     <>
       <h4>Hello Fetch</h4>
+      <Products products={products}/>
     </>
   )
 }
