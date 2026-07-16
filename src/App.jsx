@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Products from './Products/Products';
+import Products from './components/Products/Products';
 
 import './App.css'
 
