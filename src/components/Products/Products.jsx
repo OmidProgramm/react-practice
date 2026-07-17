@@ -1,12 +1,17 @@
 import React from 'react'
+import "./Products.css";
 import { Product } from './Product'
 
 const Products = ({products}) => {
   
   return (
-        products.map((product)=>{
+        <div className="products">
+          {
+            products.map((product)=>{
           return <Product product={product} key={product.id}/>
         })
+          }
+        </div>
   )
 }
 
