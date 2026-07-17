@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Navbars.css"
+import NavItem from './NavItem'
 const Navbars = ({menu}) => {
     
   return (
@@ -7,7 +8,7 @@ const Navbars = ({menu}) => {
         <ul className='navbars'>
             {
                 menu && menu.map((link)=>{
-                    return <li key={link.id}><a href={link.link}>{link.name}</a></li>
+                    return <NavItem key={link.id} link={link}/>
                     
                 })
             }

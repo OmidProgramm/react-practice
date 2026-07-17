@@ -4,7 +4,7 @@ ul.navbars {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333333;
+  background-color: #7ba9dc;
 }
 
 ul.navbars li {
@@ -13,12 +13,13 @@ ul.navbars li {
 
 ul.navbars li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 ul.navbars li a:hover {
-  background-color: #111111;
+   background-color: #5c9de7;
+  border-radius: 12px;
 }

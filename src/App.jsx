@@ -26,14 +26,15 @@ function App() {
     }
   }
   useEffect(()=>{
-    getProducts()
     getMenu()
+    getProducts()
   },[])
   
   return (
     <>
     <Navbars menu={menu}/>
       <Products products={products}/>
+      
     </>
   )
 }
