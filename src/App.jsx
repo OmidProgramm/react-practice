@@ -46,8 +46,8 @@ function App() {
   return (
     <>
     <Navbars menu={menu}/>
-      <Products products={products}/>
       <Sliders slider={slider}/>
+      <Products products={products}/>
     </>
   )
 }
