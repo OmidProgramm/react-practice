@@ -1,28 +1,44 @@
-import React, { createContext } from 'react'
-import CompA from './components/CompA/CompA'
+import React, { useEffect, useState } from 'react'
+
 import './App.css';
 
-export let MyContext = React.createContext();
+
 
 function App() {
-  let myArray = [8,6,9,7,4];
-  let myObj = [
-    {
-      firstName: "First",
-      lastName: "Last First",
-      age: 43
-    },
-    {
-      firstName: "Two",
-      lastName: "Last Tow",
-      age: 77
-    }
-  ]
+  const [products, setProducts] = useState(null)
+  const getProducts = async ()=>{
+  let data = await fetch("https://fakestoreapi.com/products")
+  let res = await data.json()
+  setProducts(res)
+ 
+}
+useEffect(()=>{
+  getProducts()
+},[])
+   console.log(products)
   return (
-    <MyContext.Provider value={{myArray,myObj}}>
-      <h4>App</h4>
-      <CompA/>
-    </MyContext.Provider>
+    <>
+    <h4>App</h4>
+    
+    <div>
+      {
+        products && products.map(product=>{
+          return(
+            <div key={product.id} >
+              <h5>{product.title}</h5>
+              <h5>{product.price}</h5>
+              <h5>{product.category}</h5>
+              <h5>{product.rating.count}</h5>
+              <hr/>
+            </div>
+          )
+        })
+      }
+    </div>
+
+    </>
+      
+    
   )
 }
 
