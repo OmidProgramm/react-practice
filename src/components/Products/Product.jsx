@@ -16,15 +16,23 @@ export const Product = ({product}) => {
             setPrice(product.price)
             setDescription(product.description)
             setImage(product.image)
-        },1000)
+        },1700)
     },[])
   return (
     <div className='product'>
-        <h4 className="title">{title || <Skeleton count={1} />} </h4>
-        <h4 className="title">{category || <Skeleton count={1} /> }</h4>
-        <div className='imageParent'><img src={image || <Skeleton count={4} /> }/></div>
-        <p>Price: {price || <Skeleton count={1} /> }</p>
-        <p>{description.substr(0,50) || <Skeleton count={2} /> }</p>
+        <h4 className="title">{title || <Skeleton count={1} baseColor='#6c6969' highlightColor='#5b5b5b' />} </h4>
+        <h4 className="title">{category || <Skeleton count={1} baseColor='#6c6969' highlightColor='#5b5b5b' /> }</h4>
+        <div className='imageParent'>
+            {image && <img src={image}/>}
+            {!image && <Skeleton height={"250px"} baseColor='#4d4e51' highlightColor='#958e8e'/>}
+        </div>
+        <p>Price: {price || <Skeleton count={1} baseColor='#6c6969' highlightColor='#5b5b5b' /> }</p>
+        <p>
+            {description
+                ? description.substring(0, 50)
+                : <Skeleton count={2} baseColor="#6c6969" highlightColor="#5b5b5b" />
+            }
+        </p>
     </div>
   )
 }
