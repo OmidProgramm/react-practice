@@ -1,11 +1,13 @@
 .parentbtn{
     display: flex;
+    flex-direction: column;
     gap: 15px;
     padding: 12px;
 }
 .btn{
-    display: inline-block;
+    display: block;
     padding: 14px;
     margin: 5px;
     cursor: pointer;
+    width: 15%;
 }
