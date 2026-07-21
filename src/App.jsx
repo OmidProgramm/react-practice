@@ -1,15 +1,17 @@
-import  { useCallback, useMemo, useState } from 'react'
+import  {useRef, useState } from 'react'
 import './App.css';
-import Title from './components/Title/Title';
-import Counter from './components/Counter/Counter';
-import Button from './components/Button/Button';
+
 
 
 function App() {
- 
+  let data = useRef()
+  const clickMe = ()=>{
+    console.log(data.current.textContent)
+  }
   return (
     <>
-    
+    <button className='btn' onClick={clickMe}>click</button>
+      <h3 ref={data}>Hello</h3>
     </>
   )
 }
