@@ -25,15 +25,10 @@ function App() {
   },[counter1])
   return (
     <>
-      <h4>App</h4>
-     
-      <div className="parentbtn">
-         <button className='btn' onClick={changeCounter1}>+</button>
-         <span>{counter1} - {isEven?" even": " odd"} </span>
-         <button className='btn' onClick={changeCounter2}>+</button>
-         <span>{counter2}</span>
-       </div>
-     </>
+    <Navbars menu={menu}/>
+      <Sliders slider={slider}/>
+      <Products products={products}/>
+    </>
   )
 }
 
