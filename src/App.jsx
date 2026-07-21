@@ -1,49 +1,33 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import './App.css';
-import Wrapper from './components/Wrapper/Wrapper';
+import Title from './components/Title/Title';
+import Counter from './components/Counter/Counter';
+import Button from './components/Button/Button';
 
-export let MyContext = React.createContext()
-let initCount = 0;
-const funcReducer = (state, action)=>{
-  switch(action){
-    case '+':
-      return state + 1
-    case '-':
-      return state - 1
-    case 'reset':
-      return initCount
-    default:
-      return state
-  }
-}
 
 function App() {
-  
-  const [counter, dispatch] = useReducer(funcReducer, initCount)
-
-  const [products, setProducts] = useState([])
-
-  const getProducts = async ()=>{
-    let data = await fetch("https://fakestoreapi.com/products")
-    let res = await data.json()
-    setProducts(res)
+  const [counter1,setCounter1] = useState(0)
+  const [counter2,setCounter2] = useState(0)
+  const changeCounter1 = ()=>{
+    setCounter1(counter1 + 1)
+    console.log("HI counter 1")
   }
-  useEffect(()=>{
-    getProducts()
-  },[])
-   
+  const changeCounter2 = ()=>{
+    setCounter2(counter2 + 1)
+    console.log("HI counter 2")
+  }
   return (
-    <MyContext.Provider value={{products}}>
+    <>
       <h4>App</h4>
-      <div>
-        <h5>Count: {counter}</h5>
-      </div>
-      <div className='parentbtn'>
-        <button className='btn' onClick={()=>dispatch('+')}>+</button>
-        <button className='btn' onClick={()=>dispatch('-')}>-</button>
-        <button className='btn' onClick={()=>dispatch('reset')}>reset</button>
-      </div>
-    </MyContext.Provider>
+      <Title/>
+      <div className="parentbtn">
+         <Counter text={'1'} counter={counter1}/>
+        <Button text={'1'} changeCounter={changeCounter1}/>
+        <Counter text={'2'} counter={counter2}/>
+        <Button text={'2'} changeCounter={changeCounter2}/>
+       </div>
+      
+     </>
   )
 }
 
